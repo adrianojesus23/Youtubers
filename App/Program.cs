@@ -43,7 +43,7 @@ var list3 = new List<int> { 6,7,8,9,4,5,10 };
 //list3.Except(list1).Dump();
 //12. First
 //clients.First(x=> x.ClientId == 24).Dump();
-//13. FirstOrDefault
+//13. FirstOrDefault Add Find
 //clients.FirstOrDefault(x=> x.ClientId == 3).Dump();
 //14. Single
 //clients.Single(x=> x.ClientId == 32).Dump();
