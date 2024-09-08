@@ -1,0 +1,118 @@
+
+using App;
+using App.ConcurrencyAsynchrony;
+using Newtonsoft.Json;
+using System.Threading;
+
+ // Threading: A method of executing multiple operations concurrently within a single process,
+ // allowing for better performance and responsiveness.
+//  Thread t1 = new Thread(ProcessTask.PrintNumbers);
+//  Thread t2 = new Thread(ProcessTask.PrintNumbers);
+//
+// t1.Start();
+// t2.Start();
+//
+// t1.Join();
+// t2.Join();
+
+
+
+
+
+// Tasks: Units of work that can be executed asynchronously, 
+// often used in modern programming to handle operations that run in parallel without blocking the main thread.
+ // string data = "this task is the best";
+ //
+ //  Task t1  = Task.Run(() => data.ProcessDate());
+ //
+ //  await t1.ConfigureAwait(false);
+ 
+  
+
+
+
+
+// Principles of Asynchrony: Concepts guiding how tasks and operations are performed asynchronously 
+// to improve efficiency and avoid blocking. Key principles include non-blocking operations and the use of callbacks or promises.
+
+
+
+
+
+
+
+// Asynchronous Functions in C#: Functions in C# that allow code to execute asynchronously 
+// using async and await keywords, improving performance by not blocking the main thread.
+
+ 
+
+
+
+
+// Asynchronous Patterns: Techniques for handling asynchronous operations, such as callbacks, 
+// promises, and async/await, used to manage tasks that run concurrently.
+
+
+ 
+
+
+
+
+
+// Obsolete Patterns: Outdated methods for handling asynchronous operations, 
+// such as traditional callback mechanisms or Begin/End pattern in .NET, which have been replaced by more modern approaches.
+
+// Parallelism: The practice of dividing a task into smaller sub-tasks that can be executed simultaneously,
+//  often to improve performance and efficiency in multi-core processors.
+//  
+
+ // var tasks = new List<Task>();
+ // for (int i = 0; i < 10; i++)
+ // {
+ //  int index = i;
+ //   tasks.Add(Task.Run(async () =>
+ //   {
+ //    await WorkAsync(index);
+ //   }));
+ // }
+ //
+ // await Task.WhenAll(tasks);
+ //
+ // static async Task WorkAsync(int index)
+ // {
+ //  await Task.Delay(1000);
+ //  Console.WriteLine("Count number: " + index + "TaskId" + Task.CurrentId);
+ // }
+
+
+
+
+string url = "https://dummyjson.com/products";
+ string result = await ProcessTask.FetchProducts(url);
+//
+ ProductResponse response = JsonConvert.DeserializeObject<ProductResponse>(result);
+//
+// // Acesse produtos
+foreach (var product in response.Products)
+{
+    Console.WriteLine(product.ToString());
+}
+
+
+
+
+
+
+
+
+
+
+
+// var repo = new VendorRepository(ConnectionString.Connection);
+//
+// var vendorEnum = await repo.GetVendorByQueryble("Fresno");
+//
+// foreach (var vendor in vendorEnum)
+// {
+//     Console.WriteLine(vendor.ToString());
+// }
