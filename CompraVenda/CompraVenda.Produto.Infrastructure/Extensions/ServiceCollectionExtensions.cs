@@ -1,3 +1,7 @@
+using CompraVenda.Produto.Domain.Interfaces;
+using CompraVenda.Produto.Infrastructure.Repositories;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace CompraVenda.Produto.Infrastructure;
 
 public static class ServiceCollectionExtensions

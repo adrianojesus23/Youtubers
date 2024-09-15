@@ -1,7 +1,7 @@
 namespace App.SingletonPatterns.Repositories;
 
-public interface IUnitWork: IDisposable
+public interface IUnitOfWork: IDisposable
 {
-    IRepositoryPattern Clients { get; }
+    IRepositoryClient Clients { get; }
     Task<int> Save();
 }

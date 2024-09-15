@@ -1,33 +1,56 @@
+using App.SingletonPatterns.DbContexts;
+using App.SingletonPatterns.DbContexts;
+using Microsoft.EntityFrameworkCore;
+
 namespace App.SingletonPatterns.Repositories;
 
-public class RepositoryPattern: IRepositoryPattern
+public class RepositoryClient: IRepositoryClient
 {
-    public RepositoryPattern()
+    private readonly AppPatternDbContext _appPatternDbContext;
+
+    public RepositoryClient(AppPatternDbContext appPatternDbContext)
     {
-        
-    }
-    public async Task<int> Create(ClientDto client)
-    {
-        throw new NotImplementedException();
+        _appPatternDbContext = appPatternDbContext;
     }
 
-    public async Task<ClientDto> GetById(int id)
+    public async Task<AppPatternDbContext> GetContext()
     {
-        throw new NotImplementedException();
+        return await Task.FromResult(_appPatternDbContext);
+    }
+    public async Task Create(ClientDto clientDto)
+    {
+        await _appPatternDbContext.Clients.AddAsync(clientDto.ToModel());
     }
 
-    public async Task<IEnumerable<ClientDto>> Get()
+    public async Task<Client?> GetById(int id)
     {
-        throw new NotImplementedException();
+        return await _appPatternDbContext.Clients.FirstOrDefaultAsync(x=> x.Id == id);
     }
 
-    public async Task<int> Update(int id, ClientDto client)
+    public async Task<IEnumerable<Client>> Get()
     {
-        throw new NotImplementedException();
+        return await _appPatternDbContext.Clients.ToListAsync();
     }
 
-    public async Task<int> Delete(int id)
+    public async Task Update(int id, ClientDto clientDto)
     {
-        throw new NotImplementedException();
+        var client = await _appPatternDbContext.Clients.FindAsync(id);
+
+        if (client is not null)
+        {
+            var updateClient = clientDto.ToModel();
+            updateClient.Id = client.Id;
+            
+            _appPatternDbContext.Clients.Update(updateClient);
+        }
+    }
+
+    public async Task Delete(int id)
+    {
+
+        var client = await _appPatternDbContext.Clients.FindAsync(id);
+
+        if (client is not null)
+             _appPatternDbContext.Clients.Remove(client);
     }
 }
