@@ -1,0 +1,35 @@
+@ApiPro_HostAddress = http://localhost:5102
+
+GET {{ApiPro_HostAddress}}/api/Professores/
+Accept: application/json
+
+### Get um Professor por ID
+GET http://localhost:5102/api/Professores/1
+Accept: application/json
+
+
+### Criar um Novo Professor
+POST http://localhost:5102/api/Professores
+Content-Type: application/json
+
+{
+    "Nome": "Nome do Professor",
+    "Departamento": "Departamento",
+    "OutrasPropriedades": "Outros Valores"
+}
+
+### Atualizar um Professor Existente
+PUT http://localhost:5102/api/Professores/1
+Content-Type: application/json
+
+{
+    "Id": 1,
+    "Nome": "Nome Atualizado",
+    "Departamento": "Departamento Atualizado",
+    "OutrasPropriedades": "Outros Valores Atualizados"
+}
+
+### Excluir um Professor por ID
+DELETE http://localhost:5102/api/Professores/1
+
+

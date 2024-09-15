@@ -1,0 +1,6 @@
+@CompraVenda.Pedido.API_HostAddress = http://localhost:5095
+
+GET {{CompraVenda.Pedido.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

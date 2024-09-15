@@ -1,0 +1,6 @@
+@CompraVenda.ApiGateway_HostAddress = http://localhost:5227
+
+GET {{CompraVenda.ApiGateway_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
