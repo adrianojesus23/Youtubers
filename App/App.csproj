@@ -19,6 +19,11 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Design" Version="2.0.0-preview1-final" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Z.Dapper.Plus" Version="7.5.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="AnyExistsCount\" />
   </ItemGroup>
 
 </Project>

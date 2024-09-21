@@ -1,6 +1,6 @@
 namespace App.Refactorings;
 
-public class Order
+public class OrderModel
 {
     public decimal Quantity { get; set; }
     public decimal Price { get; set; }
