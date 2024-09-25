@@ -4,12 +4,12 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-	  <Version>1.0.0</Version>
+	  <Version>1.0.1</Version>
 	  <Authors>JDevCode</Authors>
 	  <Company>JNeves</Company>
-	  <Description>This: Interface generic and result generic</Description>
+	  <Description>A generic package for CRUD operations suing Result</Description>
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
-	  <RepositoryUrl></RepositoryUrl>
+	  <RepositoryUrl>https://github.com/adrianojesus23/Youtubers</RepositoryUrl>
 	  <PackageId>JNeves.JDevCode.IResultGeneric</PackageId>
 	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
