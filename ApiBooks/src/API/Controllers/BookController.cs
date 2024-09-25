@@ -14,8 +14,6 @@ public class BooksController: ControllerBase
         _mediator = mediator;
     }
     
- 
-    
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {

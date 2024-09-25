@@ -1,6 +1,7 @@
 namespace App.IfElseResult;
 
-public class Result
+public class Result<T>
 {
-    
+   
+
 }

@@ -1,16 +1,16 @@
 # Base URL
-@BookStore.Api_HostAddress = http://localhost:5076
+@BookStore.Api_HostAddress = https://localhost:5076
 
 ### Get All Books
-GET {{BookStore.Api_HostAddress}}/api/books
+GET {{BookStore.Api_HostAddress}}/api/Books
 Accept: application/json
 
 ### Get Book By ID
-GET {{BookStore.Api_HostAddress}}/api/books/{id}
+GET {{BookStore.Api_HostAddress}}/api/Books/{ede91627-1f20-42d9-bff6-f34134166b8c}
 Accept: application/json
 
 ### Create a New Book
-POST {{BookStore.Api_HostAddress}}/api/books
+POST {{BookStore.Api_HostAddress}}/api/Books
 Content-Type: application/json
 
 {
@@ -21,16 +21,16 @@ Content-Type: application/json
 }
 
 ### Update an Existing Book
-PUT {{BookStore.Api_HostAddress}}/api/books
+PUT {{BookStore.Api_HostAddress}}/api/Books/{ede91627-1f20-42d9-bff6-f34134166b8c}
 Content-Type: application/json
 
 {
-  "bookId": "{id}",
+  "bookId": "{ede91627-1f20-42d9-bff6-f34134166b8c}",
   "title": "The Great Gatsby (Updated)",
   "author": "F. Scott Fitzgerald",
-  "isbn": "9780743273565",
+  "isbn": "9780743273455",
   "publishedDate": "1925-04-10T00:00:00"
 }
 
 ### Delete a Book
-DELETE {{BookStore.Api_HostAddress}}/api/books/{id}
+DELETE {{BookStore.Api_HostAddress}}/api/books/{ede91627-1f20-42d9-bff6-f34134166b8c}

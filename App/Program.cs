@@ -1,28 +1,60 @@
 ﻿using App.DapperBulks;
+using App.IfElseResult;
 using App.OOP;
 using App.Refactorings;
 using App.SpecificationPatterns.Models;
 using App.SpecificationPatterns.Services;
 using Dumpify;
+//IF-ELSE
+var userRole = ObterPrivilegios.GetUserRoles(UserRole.Admin);
+//TERNÁRIO
+var userRoleByTernario = ObterPrivilegios.GetUserRolesByTernario(UserRole.User);
+//STRATEGY PATTERN
+var userRoleByStrategy = ObterPrivilegios.GetUserRolesByStrategy(UserRole.NoUser);
+//INJEÇÃO DEPENDÊNCIA
+var authService = new AuthService(new AdminStrategy());
+var result = authService.GetUser(UserRole.Guest);
 
-//Any() Exists() Count()
-var listLivros = Livro.GetListLivros();
-//Any() && Count()
-var enumerbleLivros = Livro.GetLivros();
+userRole.Dump();
+userRoleByTernario.Dump();
+userRoleByStrategy.Dump();
+result.Dump();
 
-//********************************************************
-//Vazia vs Null
 
-if (listLivros.Count > 10 || 
-    listLivros.Any() || 
-    listLivros.Exists(x=> x.Autor.Equals("Pedro")))
-{
-    listLivros.Dump();
-}
-else
-{
-    Console.WriteLine("Não há livros");
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// //Any() Exists() Count()
+// var listLivros = Livro.GetListLivros();
+// //Any() && Count()
+// var enumerbleLivros = Livro.GetLivros();
+//
+// //********************************************************
+// //Vazia vs Null
+//
+// if (listLivros.Count > 10 || 
+//     listLivros.Any() || 
+//     listLivros.Exists(x=> x.Autor.Equals("Pedro")))
+// {
+//     listLivros.Dump();
+// }
+// else
+// {
+//     Console.WriteLine("Não há livros");
+// }
 
 
 
