@@ -1,24 +1,60 @@
 ﻿using App.DapperBulks;
 using App.IfElseResult;
+using App.MapperExtensions;
 using App.OOP;
 using App.Refactorings;
 using App.SpecificationPatterns.Models;
 using App.SpecificationPatterns.Services;
 using Dumpify;
-//IF-ELSE
-var userRole = ObterPrivilegios.GetUserRoles(UserRole.Admin);
-//TERNÁRIO
-var userRoleByTernario = ObterPrivilegios.GetUserRolesByTernario(UserRole.User);
-//STRATEGY PATTERN
-var userRoleByStrategy = ObterPrivilegios.GetUserRolesByStrategy(UserRole.NoUser);
-//INJEÇÃO DEPENDÊNCIA
-var authService = new AuthService(new AdminStrategy());
-var result = authService.GetUser(UserRole.Guest);
 
-userRole.Dump();
-userRoleByTernario.Dump();
-userRoleByStrategy.Dump();
-result.Dump();
+var userDto = new UserDto
+{
+    Id = 1,
+    Name = "JNeves",
+    Email = "JNeves@gmail.com",
+};
+
+var userEntity = new UserEntity
+{
+    Name = "Pedro",
+    Email = "Pedro@gmail.com",
+};
+
+var resultEntity = userDto.Mapper<UserDto, UserEntity>();
+resultEntity.Dump();
+var resultDto = userEntity.Mapper<UserEntity, UserDto>();
+resultDto.Dump();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////IF-ELSE
+//var userRole = ObterPrivilegios.GetUserRoles(UserRole.Admin);
+////TERNÁRIO
+//var userRoleByTernario = ObterPrivilegios.GetUserRolesByTernario(UserRole.User);
+////STRATEGY PATTERN
+//var userRoleByStrategy = ObterPrivilegios.GetUserRolesByStrategy(UserRole.NoUser);
+////INJEÇÃO DEPENDÊNCIA
+//var authService = new AuthService(new AdminStrategy());
+//var result = authService.GetUser(UserRole.Guest);
+
+//userRole.Dump();
+//userRoleByTernario.Dump();
+//userRoleByStrategy.Dump();
+//result.Dump();
 
 
 
