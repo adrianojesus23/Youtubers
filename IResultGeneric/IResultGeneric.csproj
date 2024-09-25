@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	  <Version>1.0.0</Version>
+	  <Authors>JDevCode</Authors>
+	  <Company>JNeves</Company>
+	  <Description>This: Interface generic and result generic</Description>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <RepositoryUrl></RepositoryUrl>
+	  <PackageId>JNeves.JDevCode.IResultGeneric</PackageId>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+</Project>

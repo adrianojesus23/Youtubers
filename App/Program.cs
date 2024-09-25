@@ -1,80 +1,373 @@
-﻿using System.Collections.Frozen;
-using System.Collections.Immutable;
-using System.Xml.Linq;
-using App;
-using App.ConcurrencyAsynchrony;
-using App.EFCoreConsoleApp;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using App.SingletonPatterns.DbContexts;
-using App.SingletonPatterns.Repositories;
+﻿using App.DapperBulks;
+using App.IfElseResult;
+using App.OOP;
+using App.Refactorings;
+using App.SpecificationPatterns.Models;
+using App.SpecificationPatterns.Services;
+using Dumpify;
+//IF-ELSE
+var userRole = ObterPrivilegios.GetUserRoles(UserRole.Admin);
+//TERNÁRIO
+var userRoleByTernario = ObterPrivilegios.GetUserRolesByTernario(UserRole.User);
+//STRATEGY PATTERN
+var userRoleByStrategy = ObterPrivilegios.GetUserRolesByStrategy(UserRole.NoUser);
+//INJEÇÃO DEPENDÊNCIA
+var authService = new AuthService(new AdminStrategy());
+var result = authService.GetUser(UserRole.Guest);
 
-class Program
+userRole.Dump();
+userRoleByTernario.Dump();
+userRoleByStrategy.Dump();
+result.Dump();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// //Any() Exists() Count()
+// var listLivros = Livro.GetListLivros();
+// //Any() && Count()
+// var enumerbleLivros = Livro.GetLivros();
+//
+// //********************************************************
+// //Vazia vs Null
+//
+// if (listLivros.Count > 10 || 
+//     listLivros.Any() || 
+//     listLivros.Exists(x=> x.Autor.Equals("Pedro")))
+// {
+//     listLivros.Dump();
+// }
+// else
+// {
+//     Console.WriteLine("Não há livros");
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+//POO
+//Introdução  
+//Classe e Objeto (new)
+// Livro livro01 = new Livro("C#", "Jesus", 240);
+// livro01.GetTitulo().Dump();
+// LivroDigital livro02 = new LivroDigital("POO", "Pedro", 140, 20);
+// livro01.Dump();
+// livro02.Ler();
+//Encapsulamento  (public, private, protected, internal)
+
+//Herança 
+//Polimorfismo Tipos(Sobrecarga ->Compile-time ,Substituição  -> Runtime) 
+//Abstração 
+
+
+
+
+
+
+
+
+
+
+
+//Teste().Dump();
+
+// void Teste()
+// {
+// IOrderService orderService = new OrderService();
+//
+// var orders = ExtensionsOrderService.GetOrders();
+// Console.WriteLine("Second approach");
+// decimal totalDecimal = orderService.CalculateSubTotal(orders);
+// decimal taxDecimal = orderService.CalculateTax(totalDecimal);
+// (totalDecimal + taxDecimal).Dump();
+//
+// Console.WriteLine("First approach");
+// decimal total = orders.CalculateSubTotal();
+// decimal tax = total.CalculateTax();
+// decimal totalTax = total + tax;
+// totalTax.Dump();
+//
+// double value = 20;
+// var result = value.CalulateCircumference();
+// result.Dump();
+//}
+
+
+//********************************************************
+//1. Basic Switch:
+// string Teste()
+// {
+//     int day = 3;
+//     switch (day)
+//     {
+//         case 1:
+//             return "Monday";
+//             break;
+//         case 3:
+//             return "Tuesday";
+//             break;
+//         default:
+//             return "Sunday";
+//             break;
+//     }
+// }
+//2. Switch with when:
+// string Teste()
+// {
+//     int temp = -1;
+//     switch (temp)
+//     {
+//         case int t when t < 0:
+//             return "Freezing";
+//             break;
+//         case int t when t >= 0 && t <= 15:
+//             return "Cold";
+//             break;
+//         default:
+//             return "Hot";
+//             break;
+//     }
+// }
+//3. Switch with Tuples:
+// string Teste()
+// {
+//     (int day, bool isHoliday) = (2, true);
+//     
+//     switch (day, isHoliday)
+//     {
+//         case (1, true):
+//             return "Holiday";
+//             break;
+//         case (25,_):
+//             return "Natal";
+//             break;
+//         case (_,false):
+//             return "Weekend";
+//             break;
+//         default:
+//             return "No day";
+//             break;
+//     }
+// }
+//4. Switch Expressions:
+// string Teste()
+// {
+//     int day = 1;
+//     string result = day switch
+//     {
+//         1 => "Monday",
+//         2 => "Tuesday",
+//         _ => "Unknown day"
+//     };
+//
+//     return result;
+// }
+//5. Positional Patterns:
+string Teste()
 {
-    static async Task Main(string[] args)
+    (int x, int y) point = (3, 0);
+    
+    string result = point switch
     {
-        // Configure services
-        var serviceProvider = new ServiceCollection()
-            .AddDbContext<AppPatternDbContext>(options =>
-                options.UseSqlite("Data Source=C:/Youtubers/Youtubers/App/EFCoreConsoleApp/Clients.db"))
-            .AddScoped<IUnitOfWork, UnitOfWork>()
-            .BuildServiceProvider();
+        (3,2) => "Monday",
+        (var x, 0) => $"Tuesday {x}",
+        _ => "Unknown day"
+    };
 
-        // Resolve the UnitOfWork from the service provider
-        using (var unitOfWork = serviceProvider.GetService<IUnitOfWork>())
-        {
-            // Add a new client
-            
-             var db = await unitOfWork.Clients.GetContext();
-                db.Database.EnsureCreatedAsync();
+    return result;
+}
+//6. Type Patterns:
+// string Teste()
+// {
+//     object obj = "42 => Jesus";
+//     
+//     string result = obj switch
+//     {
+//        int i => $"Integer {i}",
+//         string s => $"Tuesday {s}",
+//         _ => "Unknown"
+//     };
+//
+//     return result;
+// }
+//7. Recursive Patterns:
 
-            if (!db.Clients.Any())
-            {
-                await db.Clients.AddRangeAsync(Data.GetClients());
-                await db.SaveChangesAsync();
-            }
+// string Teste()
+// {
+//     Point point = new Point(2, 3);
+//     
+//     string result = point switch
+//     {
+//         { X:1,Y:3} => $"Integer {point.X} {point.Y}",
+//         { X:1} => $"Integer {point.X} {point.Y}",
+//         { Y:3} => $"Integer {point.X} {point.Y}",
+//         _ => "Unknown"
+//     };
+//
+//     return result;
+// }
+//8. Constant Expressions in Switch:
+// string Teste()
+// {
+//     int age = 14;
+//     string result = age switch
+//     {
+//           var a when a >= 0 && a <= 12 => "Child",
+//           var a when a >= 13 && a <= 17 => "Teenager",
+//           var a when a >= 18 => "Adult",
+//           _ => "Unknown"
+//     };
+//
+//     return result;
+// }
+//9. Pattern Combinations (and, or, not):
 
-            var newClient = new ClientDto() { Name = "John Doe", Price = 12};
-           
-            await db.AddAsync(Data.GetClient());
-            await db.SaveChangesAsync();
+// string Teste()
+// {
+//     int age = 14;
+//     
+//     string result = age switch
+//     {
+//         var a when a > 0 && a < 18 => "Minor",     // Use '&&' for logical AND
+//         var a when a >= 18 && a < 65 => "Adult",
+//         var a when a >= 65 => "Senior",
+//         _ => "Invalid age"
+//     };
+//
+//     return result;
+// }
 
-            // Get all clients
-            var clients = await unitOfWork.Clients.Get();
-            foreach (var client in clients)
-            {
-                Console.WriteLine($"Client: {client.Name}");
-            }
 
-            // Update a client
-            var clientToUpdate = await unitOfWork.Clients.GetById(1); // Assuming ID 1 exists
-            if (clientToUpdate != null)
-            {
-                clientToUpdate.Name = "Jane Doe";
-                await unitOfWork.Clients.Update( clientToUpdate.Id,new ClientDto()
-                {
-                     Price = clientToUpdate.Price,
-                     Name = clientToUpdate.Name,
-                     Id = clientToUpdate.Id
-                });
-                await unitOfWork.Save();
-            }
 
-            // Delete a client
-            await unitOfWork.Clients.Delete(1); // Assuming ID 1 exists
-            await unitOfWork.Save();
-        }
-    }
+
+
+
+
+var customers = new List<Customer>
+{
+    new Customer { Id = 1, Name = "John Pedro", Email = "john.pedro@example.com" },
+    new Customer { Id = 2, Name = "Jane Smith", Email = "jane.smith@example.com" },
+    new Customer { Id = 3, Name = "Alice Miguel", Email = "alice.miguel@example.com" }
+};
+
+//TestDapperBulk();
+
+void TestDapperBulk()
+{
+    string connectionString =
+        "Data Source=LAPTOP-GGDPPIDL;Initial Catalog=AP;Persist Security Info=True;User ID=Steve;Password=Wwil12345!;TrustServerCertificate=True;";
+    var connectionManager = new DbConnectionManager(connectionString);
+    var databaseAdapter = new DatabaseAdapter(connectionManager);
+
+    databaseAdapter.BulkUpdate(customers);
+    databaseAdapter.BulkInsert(customers);
+    databaseAdapter.BulkMarge(customers);
+    databaseAdapter.BulkDelete(customers);
+
+    var listCustomers = databaseAdapter.GetCustomers();
+
+    //listCustomers.Dump();
 }
 
 
+//TesteSpecification();
 
 
+void TesteSpecification()
+{
+    var onSaleSpec = new OnSaleSpefication();
+    var priceSpec = new PriceGreaterThanSpecification(20);
+    var nameSpec = new ValidateNameIsNullOrEmpty();
+
+    var validate = new AndSpecification<Product>(onSaleSpec, priceSpec);
+
+    // foreach (var product in products.Where(prod => validate.IsSatisFiedBy(prod)))
+    // {
+    //     Console.WriteLine($"Producto:{product.Name} Preço:{product.Price} Em saldo:{product.IsOnSale}");
+    // }
+}
 
 
-
-
-
+// class Program
+// {
+//     static async Task Main(string[] args)
+//     {
+//         // Configure services
+//         var serviceProvider = new ServiceCollection()
+//             .AddDbContext<AppPatternDbContext>(options =>
+//                 options.UseSqlite("Data Source=C:/Youtubers/Youtubers/App/EFCoreConsoleApp/Clients.db"))
+//             .AddScoped<IUnitOfWork, UnitOfWork>()
+//             .BuildServiceProvider();
+//
+//         // Resolve the UnitOfWork from the service provider
+//         using (var unitOfWork = serviceProvider.GetService<IUnitOfWork>())
+//         {
+//             // Add a new client
+//             
+//              var db = await unitOfWork.Clients.GetContext();
+//                 db.Database.EnsureCreatedAsync();
+//
+//             if (!db.Clients.Any())
+//             {
+//                 await db.Clients.AddRangeAsync(Data.GetClients());
+//                 await db.SaveChangesAsync();
+//             }
+//
+//             var newClient = new ClientDto() { Name = "John Doe", Price = 12};
+//            
+//             await db.AddAsync(Data.GetClient());
+//             await db.SaveChangesAsync();
+//
+//             // Get all clients
+//             var clients = await unitOfWork.Clients.Get();
+//             foreach (var client in clients)
+//             {
+//                 Console.WriteLine($"Client: {client.Name}");
+//             }
+//
+//             // Update a client
+//             var clientToUpdate = await unitOfWork.Clients.GetById(1); // Assuming ID 1 exists
+//             if (clientToUpdate != null)
+//             {
+//                 clientToUpdate.Name = "Jane Doe";
+//                 await unitOfWork.Clients.Update( clientToUpdate.Id,new ClientDto()
+//                 {
+//                      Price = clientToUpdate.Price,
+//                      Name = clientToUpdate.Name,
+//                      Id = clientToUpdate.Id
+//                 });
+//                 await unitOfWork.Save();
+//             }
+//
+//             // Delete a client
+//             await unitOfWork.Clients.Delete(1); // Assuming ID 1 exists
+//             await unitOfWork.Save();
+//         }
+//     }
+// }
 
 
 //Understanding the Principles of OOP in C#
@@ -89,14 +382,6 @@ class Program
 // {
 //     public string Brand { get; set; }
 // }
-
-
-
-
-
-
-
-
 
 
 //Async/ToList,Save,EnsureCreated,Migrate
@@ -127,7 +412,6 @@ class Program
 //ToLookup
 //result.ToLookup(x=> x.Name).Dump();
 
- 
 
 //1. Add
 
@@ -201,23 +485,6 @@ class Program
 // client.Dump();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // async Task CreateClients(AppDbContext appDbContext)
 // {
 //     var client1 = new Client { Name = "Jesus", Price = 100, Order = new Order()
@@ -260,13 +527,6 @@ class Program
 //      await context.Clients.AddRangeAsync(clients);
 //      await context.SaveChangesAsync();
 // }
-
-
-
-
-
-
-
 
 
 //TOP 20 METHODS IN LINQ WITH E.G

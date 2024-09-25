@@ -1,3 +1,4 @@
+using App.OOP;
 using App.SingletonPatterns.DbContexts;
 using App.SingletonPatterns.DbContexts;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ public class RepositoryClient: IRepositoryClient
 
     public RepositoryClient(AppPatternDbContext appPatternDbContext)
     {
+       
         _appPatternDbContext = appPatternDbContext;
     }
 
