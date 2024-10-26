@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiProduct", "ApiProduct\Ap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IResultGeneric", "IResultGeneric\IResultGeneric.csproj", "{A7BED807-98F1-4D91-A8F6-C319DE297173}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StocksApi", "StocksApi\StocksApi.csproj", "{A9FC99FC-016F-4DA2-90A0-221286FCE558}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StocksApi", "StocksApi\StocksApi.csproj", "{A9FC99FC-016F-4DA2-90A0-221286FCE558}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiBookks", "ApiBookks\ApiBookks.csproj", "{B57EFFA9-CEDE-4E66-B1D3-0CCE077F618A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,10 @@ Global
 		{A9FC99FC-016F-4DA2-90A0-221286FCE558}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9FC99FC-016F-4DA2-90A0-221286FCE558}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9FC99FC-016F-4DA2-90A0-221286FCE558}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B57EFFA9-CEDE-4E66-B1D3-0CCE077F618A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B57EFFA9-CEDE-4E66-B1D3-0CCE077F618A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B57EFFA9-CEDE-4E66-B1D3-0CCE077F618A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B57EFFA9-CEDE-4E66-B1D3-0CCE077F618A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +80,7 @@ Global
 		{CB87D3FF-5D84-4E2D-9D78-A9A4A762D0F7} = {24EAA477-799D-470B-8D1D-B8E06BE184B1}
 		{A7BED807-98F1-4D91-A8F6-C319DE297173} = {24EAA477-799D-470B-8D1D-B8E06BE184B1}
 		{A9FC99FC-016F-4DA2-90A0-221286FCE558} = {24EAA477-799D-470B-8D1D-B8E06BE184B1}
+		{B57EFFA9-CEDE-4E66-B1D3-0CCE077F618A} = {24EAA477-799D-470B-8D1D-B8E06BE184B1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DDA4EEB9-6FF3-4FDE-9CE5-147112C33045}
