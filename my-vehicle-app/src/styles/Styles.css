@@ -1,0 +1,42 @@
+.container{
+    max-width: 600%;
+    margin:  0 auto;
+    padding: 20px;
+    background-color: #a8bdd2;
+    border-radius: 5px;
+    box-shadow: 0 20px 10px rgba(0,0,0,0.1);
+}
+
+form{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom:  20px;
+}
+
+input{
+    flex: 1;
+    padding: 10px;
+    border:  1px solid #ccc;
+    border-right: 5px;
+}
+
+button{
+    margin-left:  10px;
+    padding:  10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1d544a;
+    color: #cccccc;
+    cursor: pointer;
+}
+.vehicle-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom:  1px solid #eee;
+}
+.vehicle-item.completed{
+    text-decoration: line-through;
+    color: #aaa;
+}

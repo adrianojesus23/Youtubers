@@ -1,4 +1,7 @@
 ﻿using App.DapperBulks;
+using App.EFCoreConsoleApp;
+using App.EFCoreConsoleApp.Models;
+using App.EFCoreConsoleApp.Services;
 using App.IfElseResult;
 using App.MapperExtensions;
 using App.OOP;
@@ -6,24 +9,118 @@ using App.Refactorings;
 using App.SpecificationPatterns.Models;
 using App.SpecificationPatterns.Services;
 using Dumpify;
+using EFCoreConsoleApp;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
-var userDto = new UserDto
+var serviceProvider = new ServiceCollection()
+    .AddDbContext<AppDbContext>()
+    .AddScoped<UserService>()
+    .BuildServiceProvider();
+
+var userService = serviceProvider.GetService<UserService>();
+
+// Console.WriteLine("Inserting mock data........");
+// await userService.InsertMockData();
+// var users = await userService.GetById(1);
+// users.Dump();
+// var blog = new Blog
+// {
+//     Url = "www.jneves.pt"
+// };
+// var blogId = await userService.InsertBlog(blog);
+// var posts = new List<Post>
+// {
+//     new Post
+//     {
+//         BlogId = blogId,
+//         Title = "Sell PC"
+//     },
+//     new Post
+//     {
+//         BlogId = blogId,
+//         Title = "Buy Car"
+//     },
+//     new Post
+//     {
+//         BlogId = blogId,
+//         Title = "Sell Car"
+//     }
+// };
+// await userService.InsertPosts(posts);
+//
+// var postBlogs = await userService.GetBlogs();
+// if (postBlogs.Any())
+//     postBlogs.Dump();
+
+var course = new Course
 {
-    Id = 1,
-    Name = "JNeves",
-    Email = "JNeves@gmail.com",
+    Title = "Beginner in C#"
+};
+var student = new Student
+{
+    Name = "Pedro"
 };
 
-var userEntity = new UserEntity
+var insertCourse = await userService.InsertCourse(course);
+var insertStudent = await userService.InsertStudent(student);
+await userService.InsertStudentCourse(new StudentCourse
 {
-    Name = "Pedro",
-    Email = "Pedro@gmail.com",
-};
+    StudentId = insertStudent.Id,
+    CourseId = insertCourse.Id
+});
 
-var resultEntity = userDto.Mapper<UserDto, UserEntity>();
-resultEntity.Dump();
-var resultDto = userEntity.Mapper<UserEntity, UserDto>();
-resultDto.Dump();
+var studentCourses = await userService.GetStudentCourses();
+studentCourses.Dump();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var userDto = new UserDto
+// {
+//     Id = 1,
+//     Name = "JNeves",
+//     Email = "JNeves@gmail.com",
+// };
+//
+// var userEntity = new UserEntity
+// {
+//     Name = "Pedro",
+//     Email = "Pedro@gmail.com",
+// };
+//
+// var resultEntity = userDto.Mapper<UserDto, UserEntity>();
+// resultEntity.Dump();
+// var resultDto = userEntity.Mapper<UserEntity, UserDto>();
+// resultDto.Dump();
 
 
 

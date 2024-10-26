@@ -1,0 +1,100 @@
+@import url('geral.css');
+
+body{
+    font-family: var(--geral-font-size);
+    font-size: var(--geral-font-size);
+    margin: 2%;
+    padding: 2%;
+    box-sizing: border-box;
+}
+
+.navbar{
+    background-color: var(--geral-primary-color);
+    padding: var(--geral-padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar a {
+    color:wheat;
+    text-decoration: snow;
+    margin-right: 15px;
+}
+
+.navbar a:active{
+    text-decoration: underline;
+    color: #000000;
+    display-model: border-bottom;
+    border-bottom: 2px solid var(--geral-second-color);
+}
+
+.container{
+    padding: var(--geral-padding);
+}
+
+.box-model-example{
+    border: 2px solid var(--geral-primary-color);
+ padding: var(--geral-padding);
+    margin:  20px 10px;
+}
+.flex-container{
+    display: flex;
+    justify-content: space-around;
+    margin: 5% 1%;
+}
+.flex-item{
+    background-color: var(--geral-primary-color);
+    padding: var(--geral-padding);
+    margin: 5%;
+    color: #2ecc71;
+    text-align: center;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.grid-item{
+    background-color: var(--geral-primary-color);
+    color: white;
+    padding: var(--geral-padding);
+    text-align: center;
+}
+.table{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.table th,
+.table td{
+    border:  1px solid #ddd;
+    padding: var(--geral-padding);
+}
+.table th {
+    background-color: var(--geral-primary-color);
+    color: white;
+}
+
+.table td{
+   background-color: #b6b656;
+}
+
+.pagination{
+    margin-top:  20px;
+}
+
+.pagination button{
+    margin:  0 5px;
+    padding:  5px 10px;
+    cursor: pointer;
+}
+
+.pagination button:disabled{
+    background-color: #1d544a;
+    cursor:  not-allowed;
+}
