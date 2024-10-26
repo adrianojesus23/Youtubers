@@ -57,7 +57,7 @@ namespace App.Migrations
 
                     b.HasIndex("ClientId");
 
-                    b.ToTable("Material");
+                    b.ToTable("Materials");
                 });
 
             modelBuilder.Entity("App.ConcurrencyAsynchrony.Order", b =>
@@ -72,7 +72,123 @@ namespace App.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Order");
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("App.EFCoreConsoleApp.Models.Blog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Blogs");
+                });
+
+            modelBuilder.Entity("App.EFCoreConsoleApp.Models.Course", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Courses");
+                });
+
+            modelBuilder.Entity("App.EFCoreConsoleApp.Models.Post", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("BlogId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BlogId");
+
+                    b.ToTable("Posts");
+                });
+
+            modelBuilder.Entity("App.EFCoreConsoleApp.Models.Profile", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Bio")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("Profiles");
+                });
+
+            modelBuilder.Entity("App.EFCoreConsoleApp.Models.Student", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Students");
+                });
+
+            modelBuilder.Entity("App.EFCoreConsoleApp.Models.StudentCourse", b =>
+                {
+                    b.Property<int>("StudentId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("StudentId", "CourseId");
+
+                    b.HasIndex("CourseId");
+
+                    b.ToTable("StudentCourses");
+                });
+
+            modelBuilder.Entity("App.EFCoreConsoleApp.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("App.Client", b =>
@@ -93,9 +209,71 @@ namespace App.Migrations
                         .HasForeignKey("ClientId");
                 });
 
+            modelBuilder.Entity("App.EFCoreConsoleApp.Models.Post", b =>
+                {
+                    b.HasOne("App.EFCoreConsoleApp.Models.Blog", "Blog")
+                        .WithMany("Posts")
+                        .HasForeignKey("BlogId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Blog");
+                });
+
+            modelBuilder.Entity("App.EFCoreConsoleApp.Models.Profile", b =>
+                {
+                    b.HasOne("App.EFCoreConsoleApp.Models.User", "User")
+                        .WithOne("Profile")
+                        .HasForeignKey("App.EFCoreConsoleApp.Models.Profile", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("App.EFCoreConsoleApp.Models.StudentCourse", b =>
+                {
+                    b.HasOne("App.EFCoreConsoleApp.Models.Course", "Course")
+                        .WithMany("StudentCourses")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("App.EFCoreConsoleApp.Models.Student", "Student")
+                        .WithMany("StudentCourses")
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("Student");
+                });
+
             modelBuilder.Entity("App.Client", b =>
                 {
                     b.Navigation("Materials");
+                });
+
+            modelBuilder.Entity("App.EFCoreConsoleApp.Models.Blog", b =>
+                {
+                    b.Navigation("Posts");
+                });
+
+            modelBuilder.Entity("App.EFCoreConsoleApp.Models.Course", b =>
+                {
+                    b.Navigation("StudentCourses");
+                });
+
+            modelBuilder.Entity("App.EFCoreConsoleApp.Models.Student", b =>
+                {
+                    b.Navigation("StudentCourses");
+                });
+
+            modelBuilder.Entity("App.EFCoreConsoleApp.Models.User", b =>
+                {
+                    b.Navigation("Profile")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

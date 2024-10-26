@@ -1,0 +1,113 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --font-family: 'Arial', sans-serif;
+    --font-size: 16px;
+    --padding: 10px;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    margin: 1%;
+    padding: 1%;
+    box-sizing: border-box;
+}
+
+.navbar {
+    background-color: var(--primary-color);
+    padding: var(--padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+.navbar a:active {
+    text-decoration: underline;
+    color: #2ecc71;
+    display-model: border-bottom ;
+}
+
+.navbar a.active {
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.container {
+    padding: var(--padding);
+}
+
+.box-model-example {
+    border: 2px solid var(--primary-color);
+    padding: var(--padding);
+    margin: 20px 0;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 5% 0;
+}
+
+.flex-item {
+    background-color: var(--secondary-color);
+    padding: var(--padding);
+    margin: 5%;
+    color: white;
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.grid-item {
+    background-color: var(--primary-color);
+    color: white;
+    padding: var(--padding);
+    text-align: center;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.table th,
+.table td {
+    border: 1px solid #ddd;
+    padding: var(--padding);
+}
+
+.table th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.table td {
+    background-color: #f9f9f9;
+}
+
+.pagination {
+    margin-top: 20px;
+}
+
+.pagination button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
