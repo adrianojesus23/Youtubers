@@ -1,5 +1,67 @@
 @import url('StyleRoot.css');
 
+.boxBlend{
+    width: var(--geral-value-90-px);
+    height: var(--geral-value-80-per);
+    background:url('../Image/CSS-Logo.png');
+    mix-blend-mode: multiply;
+    background-color: #b6b656;
+}
+.boxQueries{
+    width: var(--geral-value-90-px);
+    height: var(--geral-value-80-per);
+    background-color: #61dafb;
+}
+@media (min-width: 100px) {
+    .boxQueries{
+        background-color: #b72525;
+    }
+}
+
+.boxPseudo{
+    position: relative;
+    padding: 20px;
+    background-color: #1d544a;
+}
+.boxPseudo::after{
+    content: " ";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background-color: peru;
+}
+@keyframes slide {
+    from {transform: translateX(0)}
+    to {transform: translateY(300px)}
+}
+.boxAnima{
+    width: 70px;
+    height: 40px;
+    background-color: chartreuse;
+    animation: slide 5s infinite alternate;
+}
+
+.boxTransforma{
+    width: 100px;
+    height: 70px;
+    background-color: #15726f;
+    /*transform: rotateY(45deg);*/
+    transform-style: preserve-3d;
+}
+
+.boxTransi{
+    width: 100px;
+    height: 100px;
+    background-color: #b6b656;
+    /*transition: background-color 0.5s;*/
+    transform-box: fill-box;
+}
+.boxTransi:hover{
+    background-color: cadetblue;
+}
+
 .image {
     width: var(--geral-value-90-px);
     height: var(--geral-value-90-px);
