@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e21c3a5-d9bd-4f98-b9eb-e7d1fe12b686" name="Changes" comment="" />
+    <list default="true" id="1e21c3a5-d9bd-4f98-b9eb-e7d1fe12b686" name="Changes" comment="Feat: Learn react">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReactJs/my-first-react-app/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactJs/my-first-react-app/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReactJs/my-first-react-app/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/ReactJs/my-first-react-app/src/index.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +17,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "adrianojesus23"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/adrianojesus23/Youtubers",
+    "accountId": "c14c4af7-98a7-4cf7-8a17-58af81db901a"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 5
 }]]></component>
@@ -51,11 +67,35 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1750189480354</updated>
-      <workItem from="1750189481844" duration="1548000" />
+      <workItem from="1750189481844" duration="2367000" />
     </task>
+    <task id="LOCAL-00001" summary="Feat: Learn react">
+      <option name="closed" value="true" />
+      <created>1750191183844</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1750191183844</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Feat: Learn react" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: Learn react" />
   </component>
 </project>
