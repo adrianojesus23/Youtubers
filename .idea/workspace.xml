@@ -5,9 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e21c3a5-d9bd-4f98-b9eb-e7d1fe12b686" name="Changes" comment="Feat: Learn react">
+      <change afterPath="$PROJECT_DIR$/ReactJs/my-first-react-app/src/OlderCode/TailwindCss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReactJs/my-first-react-app/src/OlderCode/code" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReactJs/my-first-react-app/src/assets/NOTAvailable.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReactJs/my-first-react-app/src/assets/start.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReactJs/my-first-react-app/src/components/MovieCard.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReactJs/my-first-react-app/src/components/Search.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ReactJs/my-first-react-app/src/components/Spinner.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReactJs/my-first-react-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ReactJs/my-first-react-app/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReactJs/my-first-react-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ReactJs/my-first-react-app/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReactJs/my-first-react-app/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/ReactJs/my-first-react-app/src/App.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ReactJs/my-first-react-app/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/ReactJs/my-first-react-app/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ReactJs/my-first-react-app/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/ReactJs/my-first-react-app/vite.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,14 +55,23 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/12013/WebstormProjects/Youtubers/ReactJs/my-first-react-app/src/assets",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\12013\WebstormProjects\Youtubers\ReactJs\my-first-react-app\src\assets" />
+      <recent name="C:\Users\12013\WebstormProjects\Youtubers\ReactJs\my-first-react-app\src\components\Imgs" />
+      <recent name="C:\Users\12013\WebstormProjects\Youtubers\ReactJs\my-first-react-app\src\components" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -67,7 +86,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1750189480354</updated>
-      <workItem from="1750189481844" duration="2367000" />
+      <workItem from="1750189481844" duration="23492000" />
     </task>
     <task id="LOCAL-00001" summary="Feat: Learn react">
       <option name="closed" value="true" />
@@ -77,7 +96,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750191183844</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Feat: Learn react">
+      <option name="closed" value="true" />
+      <created>1750191878858</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1750191878858</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

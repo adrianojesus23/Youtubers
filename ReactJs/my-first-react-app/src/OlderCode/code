@@ -1,0 +1,165 @@
+npm install tailwindcss @tailwindcss/vite
+npm run dev
+npm build
+npm create vite@latest
+
+import { useState, useEffect } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+
+const Card = ({ title , rating, isCool}) => {
+
+   // const [hasLiked, setHasLiked] = useState(false);
+    //const [count, setCount] = useState(0);
+   const [state, setState] = useState({
+       hasLiked: false,
+       count: 0,
+   });
+
+    useEffect(() => {
+        console.log(`${title} has been liked: ${state.count}`);
+    }, [state]);
+
+    const handleOnClick = () => {
+        //setHasLiked(prev => !prev);
+        //setCount(prev=>  ++prev)
+        setState( prevState =>({
+            ...prevState,
+            hasLikded: !prevState.hasLiked,
+            count: prevState.count + 1,
+        }));
+    }
+
+    const handleClick  = (value) =>{
+        //setCount(prev=> prev + value)
+        setState(prevState => ({
+            ...prevState,
+            count: prevState.count + value,
+        }));
+    }
+    return (
+        <div className="card">
+            <h2>{title}</h2>
+            <Button handleOnClick ={handleOnClick} hasLiked={state.hasLiked}/>
+            <h4>{`${title} has been liked: ${state.count ||  "No likes yet"}`}</h4>
+            <ButtonCount handleClick={handleClick}/>
+        </div>
+    )
+}
+
+const Button = ({ handleOnClick, hasLiked}) => {
+
+    return (
+        <button onClick={handleOnClick}>{
+            hasLiked? "Liked": "Unliked"
+        }</button>
+    )
+}
+
+const ButtonCount = ({ handleClick }) => {
+
+    return (
+    <button onClick={()=> handleClick(1)}>{"Count"}</button>
+)
+}
+
+const App = () => {
+
+
+    return (
+       <div className="card-container">
+           <Card key={1} title="Star Wars" rating={5} isCool={true}/>
+           <Card key={2} title="Avatar" />
+           <Card key={3} title="The Lion King" />
+       </div>
+    )
+}
+
+export default App
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+  padding: 40px;
+  background-color: #151515;
+  font-family: "Franklin Gothic Medium";
+}
+h2{
+  color: #f3f3f3;
+  text-align: center;
+
+  font-size: 28px;
+}
+.card-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+.card{
+  margin: 10px;
+  padding: 20px;
+  background-color: #31363f;
+  color: #f3f3f3;
+  border-radius: 10px;
+  min-height: 100px;
+  border: 1px solid #4b5362;
+}
+
+button{
+  margin: 10px;
+  padding: 10px;
+  background-color: transparent;
+  color: #f3f3f3;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: right;
+}
