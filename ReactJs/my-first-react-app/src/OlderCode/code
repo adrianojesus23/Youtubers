@@ -2,6 +2,10 @@ npm install tailwindcss @tailwindcss/vite
 npm run dev
 npm build
 npm create vite@latest
+ npm i react-use
+--debounce vs throttle
+npm install appwrite
+
 
 import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
