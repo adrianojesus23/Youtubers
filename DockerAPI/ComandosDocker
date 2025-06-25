@@ -1,0 +1,165 @@
+7. Docker Compose        ← orquestra e define serviços
+   - Arquivo: docker-compose.yml
+   - Comandos:
+     docker-compose up        # Sobe todos os serviços
+     docker-compose down      # Derruba tudo
+     docker-compose build     # (Re)constrói as imagens
+     docker-compose ps        # Lista containers do compose
+
+6. Network                ← comunicação entre containers
+   - Comandos:
+     docker network ls        # Lista redes existentes
+     docker network create minha_rede
+     docker network inspect nome_rede
+     docker network connect nome_rede nome_container
+
+5. Volumes                ← persistência de dados
+   - Comandos:
+     docker volume create nome_volume
+     docker volume ls
+     docker volume inspect nome_volume
+     docker volume rm nome_volume
+
+4. Containers             ← instâncias em execução
+   - Comandos:
+     docker run imagem        # Cria e inicia container
+     docker ps                # Lista containers ativos
+     docker ps -a             # Lista todos (inclusive parados)
+     docker stop nome/id
+     docker start nome/id
+     docker rm nome/id
+
+3. Dockerfile             ← script de construção da imagem
+   - Exemplo de comando para usar o Dockerfile:
+     docker build -t nome_imagem .   # Cria imagem com base no Dockerfile no diretório atual
+
+2. Imagens                ← blueprint da aplicação
+   - Comandos:
+     docker images
+     docker pull imagem:tag ->
+     docker rmi imagem:tag
+     docker tag imagem:tag novo_nome:tag
+
+1. Docker Engine          ← motor que gerencia tudo
+   - O motor é gerenciado como serviço (Linux, Windows ou Mac):
+     systemctl start docker         # Inicia o serviço (Linux)
+     systemctl status docker        # Verifica status
+     docker info                    # Mostra info do engine
+
+     docker pull nginx:latest
+     docker pull
+     docker run nginx
+     docker ps
+     docker ps --all
+     docker run -d --name nginx-test nginx
+     docker stop nginx-test
+     docker rm nginx-test
+     docker rm nginx-test --force
+     docker run -d --rm --name nginx-test nginx
+     docker run -d --rm -p 8080:80 --name nginx-test nginx
+     docker exec -it nginx-test /bin/bash
+      ls
+      cd usr
+      ls
+      cd share
+      ls
+      cd nginx
+      ls
+      cd html
+      ls
+      echo "<h1>Hello there</h1" > index.html
+      exit
+      docker volume list
+docker run -d --rm -p 8080:80  -v nginx-data:/usr/share/nginx/html --name nginx-test nginx
+
+cd /usr/share/nginx/html
+ls
+echo "<h1>Hello docker again</h1>" > index.html
+
+
+docker build -t meu-site .
+Cria uma imagem Docker a partir do Dockerfile no diretório atual (.).
+A imagem será chamada de meu-site (-t define o nome).
+
+docker volume create site_volume
+Cria um volume Docker chamado site_volume, usado para armazenamento persistente.
+Volumes sobrevivem a containers e são ideais para guardar dados (como páginas HTML).
+
+
+docker run -d --name meu-container-site -p 9090:80 -v site_volume:/usr/share/nginx/html meu-site
+Roda um container em segundo plano (-d).
+Nomeia o container como meu-container-site.
+Mapeia a porta 9090 (host) para 80 (container).
+Monta o volume site_volume no caminho /usr/share/nginx/html (local padrão do Nginx).
+Usa a imagem meu-site.
+
+
+docker run -it --rm -v site_volume:/site alpine sh
+Executa um container temporário com a imagem Alpine Linux.
+Monta o volume site_volume dentro do container no diretório /site.
+Abre um shell interativo (sh).
+
+echo '<h1>Alterado via volume!</h1>' > /site/index.html
+exit
+docker run -it --rm -v site_volume:/site alpine sh
+--docker run -it --rm -v site_volume:/site debian bash
+docker volume rm site_volume
+
+cd /site
+ls
+cat index.html
+
+docker stop meu-container-site
+docker rm meu-container-site
+docker volume rm site_volume
+docker rmi meu-site
+
+# 1. Criar imagem do site
+docker build -t meu-site .
+
+# 2. Criar volume persistente
+docker volume create site_volume
+
+# 3. Rodar container com Nginx, usando o volume
+docker run -d --name meu-container-site -p 9090:80 -v site_volume:/usr/share/nginx/html meu-site
+
+# 4. Entrar num container Alpine para modificar o volume
+docker run -it --rm -v site_volume:/site alpine sh
+# Dentro do container:
+echo '<h1>Alterado via volume!</h1>' > /site/index.html
+exit
+
+# 5. (Opcional) Verificar se o conteúdo foi salvo no volume
+docker run -it --rm -v site_volume:/site alpine sh
+cd /site
+ls
+cat index.html
+exit
+
+# 6. Acessar no navegador: http://localhost:9090 -> verá "Alterado via volume!"
+
+# 7. Parar e remover o container
+docker stop meu-container-site
+docker rm meu-container-site
+
+# 8. Remover o volume
+docker volume rm site_volume
+
+# 9. Remover a imagem
+docker rmi meu-site
+
+
+docker build -t my-first-react-app .
+docker volume create react_volume
+docker run -d --name react-container -p 5175:80 -v react_volume:/usr/share/nginx/html my-first-react-app
+docker stop react-container
+docker rm react-container
+docker volume rm react_volume
+docker rmi my-first-react-app
+----------------------------------------------------------------------------
+
+mkdir react-crud-docker
+npm init -y
+
+
+
