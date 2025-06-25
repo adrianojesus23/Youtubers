@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e21c3a5-d9bd-4f98-b9eb-e7d1fe12b686" name="Changes" comment="Feat: my app movie">
-      <change afterPath="$PROJECT_DIR$/DockerAPI/ComandosDocker" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DockerAPI/Conceitos de Programação" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DockerAPI/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DockerAPI/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ReactJs/my-first-react-app/Dockerfile" afterDir="false" />
+    <list default="true" id="1e21c3a5-d9bd-4f98-b9eb-e7d1fe12b686" name="Changes" comment="Feat: adicionar alterações">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,7 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1750189480354</updated>
       <workItem from="1750189481844" duration="45469000" />
-      <workItem from="1750716118420" duration="3744000" />
+      <workItem from="1750716118420" duration="4396000" />
     </task>
     <task id="LOCAL-00001" summary="Feat: Learn react">
       <option name="closed" value="true" />
@@ -131,7 +126,23 @@
       <option name="project" value="LOCAL" />
       <updated>1750338108941</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Feat: adicionar alterações">
+      <option name="closed" value="true" />
+      <created>1750878324732</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1750878324732</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Feat: adicionar alterações">
+      <option name="closed" value="true" />
+      <created>1750878339218</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1750878339218</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,6 +163,7 @@
     <MESSAGE value="Feat: Learn react" />
     <MESSAGE value="Feat: create component react movie" />
     <MESSAGE value="Feat: my app movie" />
-    <option name="LAST_COMMIT_MESSAGE" value="Feat: my app movie" />
+    <MESSAGE value="Feat: adicionar alterações" />
+    <option name="LAST_COMMIT_MESSAGE" value="Feat: adicionar alterações" />
   </component>
 </project>
